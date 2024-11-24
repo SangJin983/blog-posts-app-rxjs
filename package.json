@@ -1,0 +1,19 @@
+{
+  "name": "blog-posts-app-rxjs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10",
+    "vitest": "^2.1.5"
+  },
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  }
+}
