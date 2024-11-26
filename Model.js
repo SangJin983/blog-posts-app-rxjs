@@ -1,4 +1,4 @@
-import { retry, Subject, timeout } from "rxjs";
+import { BehaviorSubject, retry, Subject, timeout } from "rxjs";
 import { ajax } from "rxjs/ajax";
 
 export class PostModel {
@@ -20,5 +20,33 @@ export class PostModel {
 
   subscribe(listener) {
     this.#posts$.subscribe(listener);
+  }
+}
+
+export class CurrentPageState {
+  #currentPage$ = new BehaviorSubject(1);
+
+  setPage(pageNumber) {
+    this.#currentPage$.next(pageNumber);
+  }
+
+  getPage() {
+    return this.#currentPage$.getValue();
+  }
+
+  subscribe(listener) {
+    this.#currentPage$.subscribe(listener);
+  }
+}
+
+export class CurrentPaginationState {
+  #currentPaginationState = new Subject();
+
+  setRange(range) {
+    this.#currentPaginationState.next(range);
+  }
+
+  subscribe(listener) {
+    this.#currentPaginationState.subscribe(listener);
   }
 }
